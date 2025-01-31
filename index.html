@@ -1,0 +1,238 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Hlasim.cz - Nahlašování problémů v obcích a městech | Jednoduché řešení pro občany</title>
+    <meta name="description" content="Hlaste problémy ve vašem městě či obci jednoduše a rychle. Pomáháme zlepšovat životní prostředí, infrastrukturu a bezpečnost ve vaší lokalitě.">
+    <meta name="keywords" content="hlášení závad, městský úřad, obecní úřad, nahlásit problém, závady ve městě, občanská iniciativa, smart city, veřejný prostor">
+    <meta name="author" content="Hlasim.cz">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Hlasim.cz - Nahlašování problémů v obcích a městech">
+    <meta property="og:description" content="Jednoduché řešení pro hlášení problémů ve vašem městě či obci. Společně zlepšujeme místo, kde žijeme.">
+    <meta property="og:image" content="https://1iq.cz/img/sG7NA/UPx6d.png">
+    <meta property="og:url" content="https://hlasim.cz">
+    <meta property="og:type" content="website">
+    
+    <!-- Facebook Meta Tags -->
+    <meta property="og:site_name" content="Hlasim.cz">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hlasim.cz">
+    <meta property="og:title" content="Hlasim.cz - Nahlašování problémů v obcích a městech">
+    <meta property="og:description" content="Jednoduché řešení pro hlášení problémů ve vašem městě či obci. Společně zlepšujeme místo, kde žijeme.">
+    <meta property="og:image" content="https://1iq.cz/img/sG7NA/UPx6d.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hlasim.cz - platforma pro hlášení problémů ve městech a obcích">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hlasim.cz - Nahlašování problémů v obcích">
+    <meta name="twitter:description" content="Jednoduché řešení pro hlášení problémů ve vašem městě či obci.">
+    <meta name="twitter:image" content="https://1iq.cz/img/sG7NA/UPx6d.png">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#4a90e2">
+
+    <title>Hlasim.cz - Podněty pro obce a města</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🏙️ Hlasim.cz</h1>
+            <div class="header-description">
+                <h2>✨ Zlepšete své město jedním kliknutím</h2>
+                <p>🤝 Společně můžeme vytvořit lepší prostředí pro život</p>
+                <p>🎯 Nahlaste problémy ve vašem okolí snadno a rychle</p>
+                <a href="#reportForm" class="cta-button">
+                    <span class="cta-icon">📢</span>
+                    Nahlásit problém
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="header-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <h3><i class="fas fa-map-marker-alt"></i> Vyberte lokalitu</h3>
+                    <p>🏘️ Zadejte název obce nebo města</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <h3><i class="fas fa-edit"></i> Popište problém</h3>
+                    <p>📝 Vyberte kategorii a popište situaci</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <h3><i class="fas fa-check-circle"></i> Označte místo</h3>
+                    <p>📍 Ukažte na mapě, kde se problém nachází</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <form id="reportForm" class="card">
+                <h2>📝 Nahlásit problém</h2>
+                
+                <div class="form-sections">
+                    <!-- City Selection Section -->
+                    <div class="form-group">
+                        <label for="cityInput">🏘️ Město/obec</label>
+                        <div class="city-search-container">
+                            <div class="input-with-clear">
+                                <input type="text" id="cityInput" autocomplete="off" placeholder="Zadejte název obce..." required>
+                                <button type="button" class="clear-input-btn" title="Vymazat">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div id="citySuggestions" class="city-suggestions"></div>
+                            <input type="hidden" id="citySelect">
+                        </div>
+                    </div>
+
+                    <!-- City Info Display -->
+                    <div class="city-info" id="cityInfo">
+                        <div id="cityAddress"></div>
+                    </div>
+
+                    <!-- Problem Details Section -->
+                    <div class="form-group">
+                        <label for="category">🏷️ Kategorie</label>
+                        <select id="category" required>
+                            <option value="">Vyberte kategorii</option>
+                            <option value="infrastruktura">🏗️ Infrastruktura</option>
+                            <option value="zivotni-prostredi">🌳 Životní prostředí</option>
+                            <option value="bezpecnost">🚨 Bezpečnost</option>
+                            <option value="uklid">🧹 Úklid</option>
+                            <option value="osvetleni">💡 Osvětlení</option>
+                            <option value="ostatni">📝 Ostatní</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">📝 Popis problému</label>
+                        <textarea id="description" rows="4" placeholder="Popište problém..." required></textarea>
+                    </div>
+
+                    <!-- Location Section -->
+                    <div class="form-group">
+                        <label for="map">📍 Místo</label>
+                        <div id="map"></div>
+                        <input type="hidden" id="coordinates">
+                        <input type="text" id="address" readonly>
+                        <input type="hidden" id="locationDetail">
+                    </div>
+
+                    <!-- Contact Section -->
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="anonymousToggle">
+                            <span>Odeslat anonymně</span>
+                        </label>
+                        
+                        <div id="contactGroup">
+                            <label for="contact">📧 Váš email</label>
+                            <input type="email" id="contact" placeholder="Pro případné doplnění">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">📤 Odeslat podnět</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <section class="faq">
+        <div class="container">
+            <h2>Často kladené dotazy</h2>
+            <div class="faq-grid">
+                <details class="faq-item">
+                    <summary>Jak funguje Hlasim.cz?</summary>
+                    <p>Hlasim.cz je platforma, která umožňuje občanům jednoduše nahlásit problémy ve svém okolí přímo zodpovědným úřadům.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Je služba zdarma?</summary>
+                    <p>Ano, služba je zcela zdarma pro všechny občany.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Musím se registrovat?</summary>
+                    <p>Ne, registrace není nutná. Můžete odeslat podnět i anonymně.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Jak dlouho trvá vyřízení podnětu?</summary>
+                    <p>Doba vyřízení závisí na konkrétním úřadu a povaze problému. Každý podnět je automaticky předán příslušnému oddělení.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-lightbulb"></i> O projektu Hlasim.cz</h3>
+                <div class="footer-features">
+                    <div class="footer-feature">
+                        <i class="fas fa-star"></i>
+                        <p>Nezávislý projekt pro lepší komunikaci s úřady</p>
+                    </div>
+                    <div class="footer-feature">
+                        <i class="fas fa-handshake"></i>
+                        <p>Propojujeme občany se samosprávami</p>
+                    </div>
+                    <div class="footer-feature">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Přispíváme k lepšímu životu v obcích</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3><i class="fas fa-shield-alt"></i> Ochrana soukromí</h3>
+                <div class="privacy-info">
+                    <p><i class="fas fa-cookie-bite"></i> Používáme pouze technická cookies nezbytná pro fungování webu</p>
+                    <p><i class="fas fa-envelope-open"></i> Zadáním e-mailu souhlasíte s jeho předáním příslušnému úřadu</p>
+                    <p><i class="fas fa-chart-bar"></i> Statistiky návštěvnosti zobrazujeme pomocí Flag Counter</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3><i class="fas fa-address-card"></i> Kontakt</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> info-hlasim@seznam.cz</p>
+                    <a href="https://info.flagcounter.com/IAAt" class="flag-counter">
+                        <img src="https://s05.flagcounter.com/count/IAAt/bg_1F4BFF/txt_FFFFFF/border_000000/columns_2/maxflags_6/viewers_Hlasim.cz/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>🌍 &copy; 2025 Hlasim.cz | Všechna práva vyhrazena</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

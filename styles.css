@@ -1,0 +1,1920 @@
+/* style.css */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #5c6bc0;
+    --background-color: #f8f9fa;
+    --text-color: #2c3e50;
+    --error-color: #ff6b6b;
+    --success-color: #4cd964;
+    --info-color: #5ac8fa;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background: linear-gradient(rgba(74, 144, 226, 0.9), rgba(92, 107, 192, 0.9)), 
+                url('https://1iq.cz/img/sG7NA/uKKt6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 2.5rem 0;
+    text-align: center;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+/* Add styles for the header description */
+.header-description {
+    max-width: 800px;
+    margin: 1rem auto 0;
+    padding: 0 1rem;
+}
+
+.header-description p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.header-description p:first-child {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* Zvýrazni text v headeru pro lepší čitelnost */
+.header-description h2,
+.header-description p {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Update form container styles */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Update form card styles */
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1.5rem;
+}
+
+/* Unified form group styling */
+.form-group {
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Update input, select, textarea styles for consistency */
+input:not([type="checkbox"]), 
+select, 
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: white;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    outline: none;
+}
+
+#address {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #f5f5f5;
+    color: #666;
+    cursor: not-allowed;
+}
+
+#cityInput {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+#cityInput:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Unify city info display */
+.city-info {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 1.5rem 0;
+    box-shadow: var(--box-shadow);
+    transform: translateY(0);
+    transition: var(--transition);
+    display: none;  /* Hide by default */
+}
+
+.city-info.visible {
+    display: block;  /* Show when visible class is added */
+}
+
+.city-info:hover {
+    transform: translateY(-2px);
+}
+
+#cityEmblem {
+    max-width: 100px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+/* Update map container */
+#map {
+    height: 300px !important;
+    width: 100%;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.leaflet-container {
+    height: 400px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+#notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    margin-top: 1rem;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: white;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.notification-success {
+    background-color: var(--success-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.notification-error {
+    background-color: var(--error-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.notification-info {
+    background-color: var(--info-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+footer {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 4rem 0 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    input:not([type="checkbox"]), 
+    select, 
+    textarea {
+        padding: 0.8rem;
+    }
+
+    .header-content {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Header styles update */
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+
+.header-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    position: relative;
+    animation: stepBounce 1s ease-out;
+    animation-fill-mode: both;
+    animation-delay: calc(var(--step-delay, 0) * 200ms);
+}
+
+.step:nth-child(1) { --step-delay: 1; }
+.step:nth-child(2) { --step-delay: 2; }
+.step:nth-child(3) { --step-delay: 3; }
+
+@keyframes stepBounce {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* FAQ Section */
+.faq {
+    padding: 4rem 0;
+    background: var(--background-color);
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.faq-item summary {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 1rem;
+    list-style: none;
+    position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-item p {
+    padding: 1rem;
+    color: var(--text-color);
+}
+
+.city-search-container {
+    position: relative;
+}
+
+/* Update city suggestions styling */
+.city-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 var(--border-radius) var (--border-radius);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+.city-suggestion {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.city-suggestion small {
+    font-size: 0.85em;
+    opacity: 0.7;
+}
+
+.city-suggestion:hover {
+    background-color: var(--background-color);
+}
+
+.city-suggestion strong {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Add new animation for form interactions */
+@keyframes formHover {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.form-group:hover {
+    animation: formHover 0.5s ease;
+}
+
+/* Add styling for emoji icons */
+.emoji-icon {
+    font-size: 1.2em;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Add modern card style */
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Add styles for new elements */
+/* Update checkbox styling */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: 20px;
+    height: 20px;
+}
+
+#contactGroup {
+    transition: all 0.3s ease;
+}
+
+/* Update submit button */
+.submit-button {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Add styles for the math puzzle modal */
+.swal2-popup {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: var(--border-radius);
+}
+
+.swal2-input {
+    border-radius: var(--border-radius) !important;
+    border: 2px solid #e0e0e0 !important;
+}
+
+/* SweetAlert2 Responsive Styles */
+.swal2-popup {
+    width: auto !important;
+    max-width: 90% !important;
+    padding: 2rem !important;
+    margin: 1rem !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.swal2-title {
+    font-size: 1.5rem !important;
+    padding: 1rem 0 !important;
+}
+
+.swal2-content {
+    font-size: 1.1rem !important;
+}
+
+.swal2-input {
+    max-width: 100% !important;
+    font-size: 1.1rem !important;
+    padding: 0.8rem !important;
+    margin: 1rem 0 !important;
+}
+
+.swal2-actions {
+    margin-top: 1.5rem !important;
+}
+
+.swal2-confirm,
+.swal2-cancel {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 1rem !important;
+    margin: 0.5rem !important;
+    border-radius: var(--border-radius) !important;
+}
+
+@media (min-width: 768px) {
+    .swal2-popup {
+        min-width: 500px !important;
+        padding: 2.5rem !important;
+    }
+
+    .swal2-title {
+        font-size: 1.8rem !important;
+    }
+
+    .swal2-content {
+        font-size: 1.2rem !important;
+    }
+
+    .swal2-confirm,
+    .swal2-cancel {
+        padding: 1rem 2rem !important;
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Footer update */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    padding: 0 1rem;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-section p, 
+.footer-section ul {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .header-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* New CTA Button styles */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 2rem;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: var(--background-color);
+}
+
+.cta-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2em;
+}
+
+.cta-button i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover i {
+    transform: translateX(5px);
+}
+
+/* Enhanced header styles */
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+
+.header-description h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.header-description p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin: 0.5rem 0;
+}
+
+/* Enhanced footer styles */
+.footer-section i {
+    margin-right: 0.5rem;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-section p, 
+.footer-section li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .header-description h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Update notification styles */
+.notification-success,
+.notification-error,
+.notification-info {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    margin-top: 1rem;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: white;
+    width: 0;
+    transition: width 5s linear;
+}
+
+/* Custom SweetAlert2 Styles */
+.custom-popup {
+    border-radius: var(--border-radius) !important;
+    padding: 2rem !important;
+}
+
+.confirmation-dialog {
+    text-align: left;
+    padding: 1rem;
+}
+
+.confirmation-header {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.confirmation-details {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+}
+
+.confirmation-details p {
+    margin: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.confirmation-details i {
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+}
+
+.custom-confirm-button {
+    background: linear-gradient(135deg, var(--success-color), #45a049) !important;
+    border-radius: var(--border-radius) !important;
+    padding: 1rem 2rem !important;
+}
+
+.custom-cancel-button {
+    background: linear-gradient(135deg, var(--error-color), #e74c3c) !important;
+    border-radius: var(--border-radius) !important;
+    padding: 1rem 2rem !important;
+}
+
+.custom-content {
+    margin: 1rem 0;
+}
+
+/* SweetAlert2 button hover effects */
+.custom-confirm-button:hover,
+.custom-cancel-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Progress animation for buttons */
+.swal2-confirm:focus,
+.swal2-cancel:focus {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+}
+
+/* Add map overlay styles */
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.map-overlay:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.map-overlay i {
+    margin-right: 0.5rem;
+}
+
+/* Map modal styles */
+.map-modal-popup {
+    max-width: 90% !important;
+    width: 800px !important;
+}
+
+.map-instruction {
+    margin-top: 1rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+/* Update confirmation dialog styles */
+.confirmation-details a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.confirmation-details a:hover {
+    text-decoration: underline;
+}
+
+.confirmation-details a i {
+    font-size: 0.8em;
+}
+
+/* Enhanced map overlay styles */
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+    border-radius: var(--border-radius);
+}
+
+.map-overlay:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.02);
+}
+
+.map-overlay-content {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.map-overlay:hover .map-overlay-content {
+    transform: translateY(-3px);
+}
+
+.map-overlay i {
+    font-size: 1.4rem;
+}
+
+/* Enhanced map modal styles */
+.map-modal-popup {
+    max-width: 90% !important;
+    width: 800px !important;
+}
+
+.map-instruction {
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.map-instruction i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Map container enhancement */
+#map {
+    position: relative;
+    border-radius: var(--border-radius) !important;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    border: none !important;
+}
+
+#modalMap {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 2px solid var(--background-color);
+}
+
+/* Location details styling */
+.location-details {
+    margin-top: 1rem;
+}
+
+.location-details input {
+    background-color: var(--background-color);
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    width: 100%;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+}
+
+.detail-hint {
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    padding-left: 0.5rem;
+}
+
+/* Modal address display */
+.modal-address-display {
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.modal-address-display i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+/* Update modal styles */
+.location-details {
+    margin: 1rem 0;
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+}
+
+.location-details input {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    width: 100%;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.location-details input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.detail-hint {
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    padding-left: 0.5rem;
+}
+
+.map-modal-popup .location-details {
+    margin: 1rem 0;
+}
+
+/* Add styles for confirmed location overlay */
+.map-overlay-confirmed {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.map-overlay-confirmed .map-overlay-content {
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.map-overlay-confirmed .address-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var (--text-color);
+}
+
+.map-overlay-confirmed .address-info i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.map-overlay-confirmed .address-text {
+    text-align: left;
+}
+
+.map-overlay-confirmed .address-main {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.map-overlay-confirmed .address-detail {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-top: 0.2rem;
+}
+
+.map-overlay-confirmed .edit-button {
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.map-overlay-confirmed .edit-button:hover {
+    background: var(--background-color);
+    transform: scale(1.1);
+}
+
+.map-overlay-confirmed .edit-button i {
+    font-size: 1.2rem;
+}
+
+/* ...existing code... */
+
+.map-overlay-confirmed .map-overlay-content {
+    background: white;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.location-confirmation {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+.location-confirmation i {
+    font-size: 1.2rem;
+}
+
+.location-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+}
+
+.location-text {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.location-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var (--secondary-color);
+    font-size: 0.9rem;
+    padding-left: 0.5rem;
+}
+
+.edit-location {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    transition: var(--transition);
+    width: auto;
+    box-shadow: none;
+}
+
+.edit-location:hover {
+    color: var(--secondary-color);
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius);
+    transform: translateY(0);
+}
+
+/* ...rest of existing code... */
+
+.address-input-section {
+    margin-bottom: 1rem;
+}
+
+.address-input-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-address-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid var(--background-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.modal-address-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.find-address-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    width: auto;
+}
+
+.find-address-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.find-address-btn i {
+    font-size: 1.1rem;
+}
+
+/* Update map modal styles */
+.map-modal-popup {
+    max-width: 90% !important;
+    width: 800px !important;
+}
+
+.map-modal-popup .swal2-html-container {
+    margin-top: 0.5rem;
+}
+
+/* ...rest of existing code... */
+
+/* Updated map overlay styles */
+.map-overlay-confirmed .map-overlay-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 0.8rem 1rem;
+    width: 100%;
+}
+
+.location-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+.location-status i {
+    font-size: 1.2rem;
+}
+
+.location-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    width: auto;
+    box-shadow: none;
+}
+
+.edit-btn {
+    color: var(--primary-color);
+}
+
+.delete-btn {
+    color: var(--error-color);
+}
+
+.action-btn:hover {
+    background: var(--background-color);
+    transform: scale(1.1);
+}
+
+/* Modal address actions */
+.address-actions-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.find-address-btn,
+.clear-address-btn {
+    padding: 0.8rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.find-address-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.clear-address-btn {
+    background: var(--error-color);
+    color: white;
+}
+
+.find-address-btn:hover,
+.clear-address-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* ...existing code... */
+
+/* Remove hover animation for specific form groups */
+.form-group:has(#cityInput):hover,
+.form-group:has(#category):hover {
+    animation: none;
+}
+
+/* Input with clear button */
+.input-with-clear {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.clear-input-btn {
+    position: absolute;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    opacity: 0.6;
+    transition: var(--transition);
+    width: auto;
+    box-shadow: none;
+}
+
+.clear-input-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    background: none;
+    box-shadow: none;
+}
+
+/* Enhanced FAQ hover effects */
+.faq-item {
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item summary:hover {
+    color: var(--primary-color);
+}
+
+/* ...existing code... */
+
+.map-confirmation-hint {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    text-align: center;
+    border-left: 4px solid var(--primary-color);
+}
+
+.map-confirmation-hint i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+.map-confirmation-hint p {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin: 0;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ...rest of existing code... */
+
+/* ...existing code... */
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* ...existing code... */
+
+/* Map type switch styles */
+.map-type-switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 5px;
+}
+
+.map-type-switch button {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    width: auto;
+    color: var(--text-color);
+    box-shadow: none;
+}
+
+.map-type-switch button.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.map-type-switch button:first-child {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.map-type-switch button:last-child {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+/* ...existing code... */
+
+/* Enhanced Footer Styles 2.0 */
+.footer-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.footer-feature:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.footer-feature i {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-feature p {
+    margin: 0;
+}
+
+.privacy-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.privacy-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.privacy-info p:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.contact-info p:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.flag-counter {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.flag-counter:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.flag-counter img {
+    border-radius: calc(var(--border-radius) - 4px);
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .footer-feature, 
+    .privacy-info p, 
+    .contact-info p {
+        padding: 0.8rem;
+    }
+    
+    .footer-content {
+        padding: 2rem 1rem;
+    }
+}
+
+/* ...existing code... */
+
+/* Update mobile modal styles */
+@media (max-width: 768px) {
+    .map-modal-popup {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100vh !important;
+        border-radius: 0 !important;
+    }
+
+    .swal2-popup {
+        padding: 0 !important;
+        font-size: 14px !important;
+    }
+
+    #modalMap {
+        height: 50vh !important;
+    }
+
+    .swal2-actions {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        display: flex !important;
+        padding: 1rem !important;
+        background: white !important;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1) !important;
+        z-index: 1000 !important;
+        margin: 0 !important;
+        flex-direction: row !important; /* Change to row */
+        gap: 0.5rem !important;
+    }
+
+    .swal2-confirm,
+    .swal2-cancel {
+        flex: 1 !important;
+        margin: 0 !important;
+        width: 50% !important; /* Set width to 50% */
+        padding: 1rem !important;
+        font-size: 1rem !important;
+        font-weight: bold !important;
+        height: 50px !important; /* Set fixed height */
+    }
+
+    /* Add padding to content to prevent overlap with fixed buttons */
+    .swal2-html-container {
+        padding-bottom: 70px !important;
+    }
+}
+
+/* ...existing code... */
+
+/* Update mobile modal styles */
+@media (max-width: 768px) {
+    .map-modal-popup {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        height: 100vh !important;
+        border-radius: 0 !important;
+    }
+
+    .swal2-popup {
+        padding: 0 !important;
+        font-size: 14px !important;
+    }
+
+    #modalMap {
+        height: 50vh !important;  /* Sníženo pro lepší rozložení */
+    }
+
+    .swal2-actions {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        display: flex !important;
+        padding: 1rem !important;
+        background: white !important;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1) !important;
+        z-index: 1000 !important;
+        margin: 0 !important;
+    }
+
+    .swal2-confirm,
+    .swal2-cancel {
+        flex: 1 !important;
+        margin: 0 0.5rem !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+        font-weight: bold !important;
+    }
+
+    .mobile-warning-bar {
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        border-left: 4px solid #ffeeba;
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .mobile-warning-bar i {
+        color: #856404;
+        font-size: 1.1rem;
+    }
+
+    /* Přidáme padding pro spodní tlačítka */
+    .swal2-html-container {
+        padding-bottom: 80px !important;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.mobile-warning-bar {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    border-left: 4px solid #ffeeba;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--border-radius);
+}
+
+.mobile-warning-bar i {
+    color: #856404;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    /* ...existing mobile styles... */
+    
+    .mobile-warning-bar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-bottom: 4px solid #ffeeba;
+    }
+}
+
+/* ...existing code... */
+
+/* Modal info bars unified design */
+.modal-info-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    margin: 0.8rem 0;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    border-left: 4px solid;
+}
+
+.modal-info-bar i {
+    font-size: 1.2rem;
+}
+
+.modal-info-bar.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffeeba;
+}
+
+.modal-info-bar.warning i {
+    color: #856404;
+}
+
+.modal-info-bar.info {
+    background-color: #e3f2fd;
+    color: #0c5460;
+    border-color: var(--primary-color);
+}
+
+.modal-info-bar.info i {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    /* ...existing mobile styles... */
+    
+    .modal-info-bar.sticky {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-bottom-width: 4px;
+        border-bottom-style: solid;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.modal-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1rem;
+    text-align: center;
+    font-style: italic;
+}
+
+.swal2-actions button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #ccc !important;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.modal-subtitle {
+    font-size: 0.9rem;
+    margin: 0.75rem 0;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    background-color: #fff3cd;
+    color: #856404;
+    border-radius: var(--border-radius);
+    border-left: 4px solid #ffeeba;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-subtitle i {
+    color: #856404;
+    font-size: 1rem;
+}
+
+/* ...existing code... */
+
+.modal-current-address {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-current-address i {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .modal-current-address {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0.3rem 0;
+    }
+}
+
+/* ...existing code... */
+
+/* Enhanced SweetAlert2 Modal Styles */
+.swal2-popup {
+    padding-bottom: 1rem !important;
+}
+
+.swal2-html-container {
+    margin-bottom: 1rem !important;
+}
+
+.swal2-input[type="number"] {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 1rem auto !important;
+    padding: 0.8rem !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: var(--border-radius) !important;
+    font-size: 1.1rem !important;
+}
+
+.swal2-actions {
+    margin-top: 0 !important;
+    padding: 1rem !important;
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Map modal specific styles */
+.map-modal-popup .swal2-actions {
+    margin-top: 1rem !important;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+/* Confirmation dialog specific styles */
+.confirmation-dialog {
+    margin-bottom: 0 !important;
+}
+
+.confirmation-dialog + .swal2-actions {
+    margin-top: 1rem !important;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+/* Math verification modal specific styles */
+.swal2-popup.verification-modal {
+    max-width: 400px;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+    .map-modal-popup .swal2-actions,
+    .confirmation-dialog + .swal2-actions {
+        position: sticky !important;
+        bottom: 0 !important;
+        background: white !important;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1) !important;
+        margin: 1rem -1.25rem -1rem !important;
+        padding: 1rem !important;
+    }
+    
+    .swal2-input[type="number"] {
+        max-width: 100% !important;
+        margin: 1rem 0 !important;
+    }
+}
+
+/* ...existing code... */
